@@ -1,10 +1,9 @@
 import styled from 'styled-components';
-import background2 from './../assets/bg1.jpg'
 
 export const Container = styled.div`
-background: url('${background2}');
+background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
 background-size: cover;
-height: 100vh;
+min-height: 100vh;
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -21,11 +20,12 @@ rgba(255,255,255,0.6)0.84%,
 rgba(255,255,255, 0.6)0.85%,
 rgba(255,255,255,0.15)100%
 );
-border-radius: 61px 61px 0px 0px ;
+border-radius: 61px 61px 61px 61px ;
 padding: 50px 36px;
 display: flex;
 flex-direction: column;
-height: 100vh;
+height: auto;
+margin-bottom: 220px;
 `
 
 export const H1 = styled.h1`
@@ -55,7 +55,9 @@ box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 border-radius: 14px;
 border: none;
 outline: none;
-width: 342px;
+width: 100% ;
+max-width: 500px; 
+min-width: 300px;
 height: 58px;
 padding-left: 25px;
 font-size: 15px;
@@ -106,8 +108,10 @@ border-radius: 14px;
 border: none;
 outline: none;
 width: 342px;
-height: 58px;
+height: auto;
 margin-top: 20px;
+padding: 10px;
+gap: 10px;
 
 p{
     font-style: normal;

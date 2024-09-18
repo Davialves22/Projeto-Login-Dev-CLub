@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Container,
   H1,
@@ -22,15 +22,25 @@ export const App = () => {
   //primeiro React hook - useState
   const [users, setUsers] = useState([]);
 
+  //segundo hook - useRef
+  const inputName = useRef();
+  const inputAge = useRef()
+  const inputEmail = useRef();
+  const inputPhone = useRef();
+
+
+
+
+  //função que irá criar e adicionar um novo usuario usando o hook useRef
   function addNewUser() {
-    setUsers([{
-      id: Math.random(),
-      name: "Nino",
-      age: 1,
-      email: "gNininho@gmail.com",
-      phone: "(81) 97341-7256"
+    setUsers([...users,{id: Math.random(),
+      name: inputName.current.value,
+      age: inputAge.current.value,
+      email: inputEmail.current.value,
+      phone: inputPhone.current.value
     }])
   }
+
 
   return (
     <>
@@ -40,16 +50,16 @@ export const App = () => {
           <H1>Olá </H1>
 
           <InputLabel >nome</InputLabel>
-          <Input type="Name" placeholder="Nome" />
+          <Input type="Name" ref={inputName}  placeholder="Nome" />
 
           <InputLabel >Idade</InputLabel>
-          <Input type="Age" placeholder="Idade" />
+          <Input type="Age" ref={inputAge} placeholder="Idade" />
 
           <InputLabel >Email</InputLabel>
-          <Input type="Email" placeholder="Email" />
+          <Input type="Email" ref={inputEmail}  placeholder="Email" />
 
           <InputLabel>Telefone</InputLabel>
-          <Input type="Phone" placeholder="Telefone" />
+          <Input type="Phone" ref={inputPhone} placeholder="Telefone" />
 
           <ButtonCadaster onClick={addNewUser}>Cadastrar <Arrow alt="arrow" src={arrow} /></ButtonCadaster><br />
 
